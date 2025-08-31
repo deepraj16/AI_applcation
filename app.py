@@ -38,6 +38,7 @@ def initialize_chatbot():
 @app.route('/')
 def home():
     """Render the main chat interface"""
+    initialize_chatbot()
     return render_template('index.html')
 
 @app.route('/chat', methods=['POST'])
@@ -90,12 +91,6 @@ def health():
     return jsonify({'status': 'healthy', 'service': 'Marathi Chatbot'})
 
 if __name__ == '__main__':
-    # Initialize the chatbot on startup
-    try:
-        initialize_chatbot()
-        print("🚀 Starting Marathi Chatbot Server...")
-        print("🎓 संजिवनी कॉलेज प्रवेश सल्लागार सेवा सुरू!")
-        app.run(debug=True, host='0.0.0.0', port=5000)
-    except Exception as e:
-        print(f"❌ Failed to start server: {e}")
-        print("🔧 Please check if addimsion.txt file exists and all dependencies are installed.")
+    # In
+    app.run(debug=True, host='0.0.0.0', port=5000)
+    
