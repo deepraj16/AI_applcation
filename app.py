@@ -19,7 +19,8 @@ def initialize_chatbot():
         
         chunks = load_pdf_document('addimsion.txt')
         
-        # Setup embeddings and vector st
+        # Setup embeddings and vector store
+        print("🔍 Creating vector store...")
         vector_store = setup_embeddings_and_vectorstore(chunks)
         retriever = vector_store.as_retriever()
         
@@ -92,11 +93,9 @@ if __name__ == '__main__':
     # Initialize the chatbot on startup
     try:
         initialize_chatbot()
-        print(" Starting Marathi Chatbot Server...")
-        print("संजिवनी कॉलेज प्रवेश सल्लागार सेवा सुरू!")
+        print("🚀 Starting Marathi Chatbot Server...")
+        print("🎓 संजिवनी कॉलेज प्रवेश सल्लागार सेवा सुरू!")
         app.run(debug=True, host='0.0.0.0', port=5000)
     except Exception as e:
-        print(f" Failed to start server: {e}")
-
-        print(" Please check if addimsion.txt file exists and all dependencies are installed.")
-
+        print(f"❌ Failed to start server: {e}")
+        print("🔧 Please check if addimsion.txt file exists and all dependencies are installed.")
