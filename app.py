@@ -19,8 +19,7 @@ def initialize_chatbot():
         
         chunks = load_pdf_document('addimsion.txt')
         
-        # Setup embeddings and vector store
-        print("🔍 Creating vector store...")
+        # Setup embeddings and vector st
         vector_store = setup_embeddings_and_vectorstore(chunks)
         retriever = vector_store.as_retriever()
         
@@ -100,3 +99,4 @@ if __name__ == '__main__':
         print(f" Failed to start server: {e}")
 
         print(" Please check if addimsion.txt file exists and all dependencies are installed.")
+
